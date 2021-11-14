@@ -1,0 +1,434 @@
+$Swatch1: #337076;
+$Swatch2: #5f979b;
+$Swatch3: #34555d;
+$Swatch4: #a1b6bf;
+$Swatch5: #e0dddd;
+$Swatch6: #627673;
+$p: 5rem;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(45deg, $Swatch1, $Swatch3);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.reveal {
+  transition: 600ms ease;
+  opacity: 0;
+  transform: translateY(10%);
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background: $Swatch5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $Swatch3;
+
+  &:active {
+    border-radius: 1rem;
+  }
+}
+
+nav {
+  display: flex;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid $Swatch6;
+  background: $Swatch3;
+
+  @media screen and(min-width: 992px) {
+    #navbarSupportedContent {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  img {
+    width: 3rem;
+  }
+
+  ul {
+    li {
+      margin: 0 1rem;
+
+      @media screen and(max-width: 992px) {
+        margin: 0.5rem 0;
+      }
+
+      &:last-child {
+        a {
+          padding: 0.5rem 1rem;
+          border: 1px solid $Swatch5;
+          border-radius: 0.25rem;
+
+          &::before {
+            display: none;
+          }
+
+          &:hover {
+            background: $Swatch5;
+            color: $Swatch3 !important;
+          }
+        }
+      }
+
+      .nav-link {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        color: $Swatch5 !important;
+        transition: 300ms ease-in-out;
+        font-weight: 600;
+
+        &::before {
+          content: "";
+          width: 0;
+          height: 2px;
+          border-radius: 1rem;
+          background: $Swatch5;
+          position: absolute;
+          bottom: 0;
+          transition: 300ms ease;
+        }
+
+        &:hover {
+          color: $Swatch5;
+
+          &::before {
+            width: 100%;
+          }
+        }
+
+        @media screen and(max-width: 992px) {
+          display: flex;
+          justify-content: center;
+
+          &:hover {
+            color: $Swatch5;
+
+            &::before {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-toggler {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: $Swatch5;
+    font-size: 2rem;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 #000;
+  }
+}
+
+header {
+  min-height: 100vh;
+  padding: 6rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    @media screen and(max-width: 992px) {
+      flex-direction: column;
+    }
+
+    .right {
+      width: 45%;
+
+      img {
+        max-width: 90%;
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.1));
+      }
+
+      @media screen and(max-width: 992px) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        img {
+          max-width: 50%;
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    h1,
+    p {
+      color: $Swatch5;
+    }
+
+    h1 {
+      font-weight: 700;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .buttons {
+      padding-top: 1rem;
+      display: flex;
+
+      a {
+        color: $Swatch5;
+        text-decoration: none;
+        padding: 1rem;
+        border: 1px solid $Swatch5;
+        border-radius: 0.5rem;
+        transition: 300ms ease;
+
+        &:last-child {
+          margin-left: 0.5rem;
+        }
+
+        &:hover {
+          background: $Swatch5;
+          color: $Swatch3 !important;
+        }
+      }
+
+      @media screen and(max-width: 992px) {
+        flex-direction: column;
+
+        a:last-child {
+          margin-left: 0;
+        }
+
+        a {
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+
+#features {
+  padding: $p 0;
+  background: $Swatch5;
+  color: $Swatch3;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      text-align: center;
+      font-weight: 600;
+    }
+    p {
+      text-align: center;
+    }
+
+    .boxes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 2rem 0;
+
+      @media screen and(max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .box {
+        position: relative;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        background: $Swatch2;
+        color: $Swatch5;
+        transition: 300ms ease;
+        margin: 1rem;
+        width: calc(25% - 2rem);
+        text-align: center;
+
+        @media screen and(max-width: 768px) {
+          width: 100%;
+        }
+
+        i {
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translate(-50%, -50%);
+          font-size: 1.5rem;
+          color: $Swatch2;
+          background: $Swatch5;
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          border: 1px solid $Swatch2;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
+#ss {
+  padding: $p 0;
+  background: $Swatch5;
+  color: $Swatch3;
+  text-align: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .owl-carousel {
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      width: 80%;
+
+      &.owl-drag .center .item {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+      }
+
+      .item {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0);
+        transform: scale(0.9);
+        transition: 300ms ease;
+
+        img {
+          border-radius: 0.5rem;
+        }
+      }
+
+      .owl-dots {
+        padding-top: 2rem;
+      }
+
+      .owl-dot span {
+        width: 0.75rem;
+        height: 0.75rem;
+        transition: 300ms;
+        background: $Swatch5;
+        border: 1px solid $Swatch3;
+        opacity: 0.5;
+      }
+
+      .owl-dot.active span,
+      .owl-dot span:hover {
+        transition: 300ms;
+        background: $Swatch6;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#team {
+  padding: $p 0;
+  background: $Swatch5;
+  color: $Swatch3;
+  text-align: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .members {
+      display: flex;
+      justify-content: center;
+
+      @media screen and(max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .member:first-child .bg-image {
+        background-image: url(../img/vusal.jpg);
+      }
+
+      .member:nth-child(2) .bg-image {
+        background-image: url(../img/celil.jpeg);
+      }
+
+      .member:nth-child(4) .bg-image {
+        background-image: url(../img/ramil.jpeg);
+      }
+
+      .member:nth-child(3) .bg-image {
+        background-image: url(../img/nijat.jpeg);
+      }
+
+      .member {
+        background: $Swatch4;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        margin: 1rem;
+        width: 25%;
+        transition: 300ms ease;
+
+        &:hover {
+          transform: scale(1.01);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .text {
+          padding: 1rem;
+        }
+
+        .bg-image {
+          height: 300px;
+          background-size: cover;
+          background-position: center;
+        }
+
+        @media screen and(max-width: 992px) {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: $p 0;
+  background: linear-gradient(45deg, $Swatch1, $Swatch3);
+  color: $Swatch5;
+  text-align: center;
+
+  a {
+    color: $Swatch5;
+  }
+}
